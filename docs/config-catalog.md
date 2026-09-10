@@ -3310,6 +3310,29 @@ export interface Config {
 
 Source: [`packages/web/web-fetch-http/src/index.ts:32`](../packages/web/web-fetch-http/src/index.ts)
 
+<a id="deepseek-aidsh-web-search-brave"></a>
+
+## `@deepseek-ai/dsh-web-search-brave`
+
+Requires: `web`
+
+```ts config-catalog
+/** Plugin config (all optional — `apply` fills env-var and constant defaults). */
+export interface Config {
+  /** Brave Search API key. Falls back to `$BRAVE_SEARCH_API_KEY`. Empty → unavailable. */
+  apiKey?: string
+  /** Endpoint base; `/res/v1/web/search` is appended. Defaults to the public API. */
+  baseURL?: string
+  /**
+   * Default result count when a request carries no `maxResults`. Omitted = 10.
+   * Must be an integer from 1 to 20 (Brave's `count` range).
+   */
+  numResults?: number
+}
+```
+
+Source: [`packages/web/web-search-brave/src/index.ts:32`](../packages/web/web-search-brave/src/index.ts)
+
 <a id="deepseek-aidsh-web-search-deepseek"></a>
 
 ## `@deepseek-ai/dsh-web-search-deepseek`
@@ -3361,6 +3384,31 @@ export interface Config {
 ```
 
 Source: [`packages/web/web-search-exa/src/index.ts:35`](../packages/web/web-search-exa/src/index.ts)
+
+<a id="deepseek-aidsh-web-search-google"></a>
+
+## `@deepseek-ai/dsh-web-search-google`
+
+Requires: `web`
+
+```ts config-catalog
+/** Plugin config (all optional — `apply` fills env-var and constant defaults). */
+export interface Config {
+  /** Google API key. Falls back to `$GOOGLE_SEARCH_API_KEY`. Empty → provider unavailable. */
+  apiKey?: string
+  /** Custom Search Engine ID (`cx`). Falls back to `$GOOGLE_SEARCH_CX`. Empty → unavailable. */
+  searchEngineId?: string
+  /** Endpoint base; `/customsearch/v1` is appended. Defaults to the public API. */
+  baseURL?: string
+  /**
+   * Default result count when a request carries no `maxResults`. Omitted = 10
+   * (Google's maximum). Must be an integer from 1 to 10.
+   */
+  numResults?: number
+}
+```
+
+Source: [`packages/web/web-search-google/src/index.ts:35`](../packages/web/web-search-google/src/index.ts)
 
 <a id="deepseek-aidsh-web-search-perplexity"></a>
 
